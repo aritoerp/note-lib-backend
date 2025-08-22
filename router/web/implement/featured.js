@@ -20,12 +20,12 @@ module.exports = async (req, res) => {
         });
 
         let config = {
-            method: 'post',
+            method: "post",
             maxBodyLength: Infinity,
-            url: 'https://api2dev.arito.vn/api/v1/List/Featured',
+            url: `${process.env.API_HOST}/List/Featured`,
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
             },
             data: data
         };
@@ -39,12 +39,12 @@ module.exports = async (req, res) => {
             });
         }
 
-        let categories = Array.isArray(response.data?.data?.data) ? response.data.data.data : [];
+        let featured = Array.isArray(response.data?.data?.data) ? response.data.data.data : [];
         return res.json({
             "code": 200,
             "messageCode": "",
             "messageText": "Lấy danh sách loại sách thành công",
-            "data": categories
+            "data": featured
         });
     } catch (e) {
         if (e?.messageCode && e?.messageCode[0] == "$") {

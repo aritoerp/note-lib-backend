@@ -12,11 +12,11 @@ module.exports = async (req, res) => {
         });
 
         let loginConfig = {
-            method: 'post',
+            method: "post",
             maxBodyLength: Infinity,
-            url: 'https://api2dev.arito.vn/api/v1/Login',
+            url: `${process.env.API_HOST}/Login`,
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
             data: data
         };
@@ -41,11 +41,11 @@ module.exports = async (req, res) => {
 
         // Gọi API để lấy thông tin người dùng
         let userInfoConfig = {
-            method: 'post',
+            method: "post",
             maxBodyLength: Infinity,
-            url: 'https://api2dev.arito.vn/api/v1/User/Me',
+            url: `${process.env.API_HOST}/User/Me`,
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                "Authorization": `Bearer ${accessToken}`
             },
             data: {
                 "memvars": {

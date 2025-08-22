@@ -4,8 +4,8 @@ module.exports = async (req, res) => {
     try {
         let { memvars, accessToken } = req.body;
         if (!memvars) memvars = {
-            "loai_sach": "",// tên loại sách - trắng là tất cả
-            "id":"",
+            "type":"",      // image, video, audio, elearning để trắng get all
+            "id":"",        // lấy chi tiết theo id
             "pageIndex": 0
         };
 
@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
         let config = {
             method: "post",
             maxBodyLength: Infinity,
-            url: `${process.env.API_HOST}/List/EBook`,
+            url: `${process.env.API_HOST}/List/Euresource`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${accessToken}`
@@ -41,12 +41,12 @@ module.exports = async (req, res) => {
             });
         }
 
-        let categories = Array.isArray(response.data?.data?.data) ? response.data.data.data : [];
+        let euresource = Array.isArray(response.data?.data?.data) ? response.data.data.data : [];
         return res.json({
             "code": 200,
             "messageCode": "",
-            "messageText": "Lấy danh sách loại sách thành công",
-            "data": categories
+            "messageText": "Lấy danh sách học liệu thành công",
+            "data": euresource
         });
     } catch (e) {
         if (e?.messageCode && e?.messageCode[0] == "$") {

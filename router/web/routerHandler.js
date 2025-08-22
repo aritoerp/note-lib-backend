@@ -6,5 +6,7 @@ module.exports = {
     featured : require("./implement/featured.js"),
     recent: require("./implement/recent.js"),
     popular: require("./implement/popular.js"),
+    euresource: require("./implement/euresource.js"),
+    activities: require("./implement/activities.js"),
     downloadPdf: require("./implement/downloadPdf.js")
 }

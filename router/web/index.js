@@ -11,6 +11,7 @@ router.post("/recent", routerHandler.recent);
 router.post("/popular", routerHandler.popular);
 router.post("/euresource", routerHandler.euresource);
 router.post("/activities", routerHandler.activities);
+router.post("/search", routerHandler.search);
 router.get("/download-pdf", routerHandler.downloadPdf); 
 
 module.exports = router;

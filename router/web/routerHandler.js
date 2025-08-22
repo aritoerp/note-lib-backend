@@ -8,5 +8,6 @@ module.exports = {
     popular: require("./implement/popular.js"),
     euresource: require("./implement/euresource.js"),
     activities: require("./implement/activities.js"),
+    search: require("./implement/search.js"),
     downloadPdf: require("./implement/downloadPdf.js")
 }
